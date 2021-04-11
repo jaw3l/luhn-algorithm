@@ -2,10 +2,6 @@ import random as r
 import string as s
 import argparse
 
-##########################################
-##            LUHN ALGORITHM            ##
-##########################################
-
 
 def check(numbers, checkDigit=False):
     """Check the card number's validness"""
@@ -23,7 +19,7 @@ def check(numbers, checkDigit=False):
             if (pos % 2 != 0):  # If item is in odd position (1,3,5,7..)
                 m = (int(item) * 2)
                 if (m >= 10):
-                    # There must be a better way to do this
+                    # There must be a better way of doing this
                     mStr = str(m)
                     mList = []
                     mList.append(int(mStr[0]))
@@ -70,25 +66,6 @@ def generate(size, showOutput=False):
 
 
 if __name__ == "__main__":
-    # # # Valid example: 79927398713 , Invalid example: 79813567492
-    # # numbers = "7162232231695261"
-
-    # # if check(numbers):
-    # #     print("This is a valid card.")
-    # # else:
-    # #     print("This is not a valid card.")
-
-    # generate(16)
-
-    # try:
-    #     arg = sys.argv[1]
-    #     if sys.argv[1] == "generate":
-    #         generate(sys.argv[2])
-    #     elif sys.argv[1] == "check":
-    #         check(sys.argv[2])
-    # except IndexError:
-    #     raise SystemExit(f"Usage: {sys.argv[0]} [generate/check] [lenght/number]")
-    # print(arg[::-1])
 
     parser = argparse.ArgumentParser(
         prog="luhn.py",
@@ -96,7 +73,7 @@ if __name__ == "__main__":
         description=" ## Luhn Algorithm ## ",
         epilog="Example: luhn.py generate 16")
 
-    parser.version = "0.1"
+    parser.version = "0.2"
 
     parser.add_argument("--generate", "-g",
                         metavar="length",
@@ -113,9 +90,8 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--version", action="version")
 
     args = parser.parse_args()
-    # print(args.accumulate(args.integers))
-    # if args.generate or args.check is None:
-    #     print("help")
+    # if args.generate and args.check is None:  # I don't know how to to this
+    #     print("luhn.py -h for more info")
     if args.generate is not None and args.generate >= 2:
         generate(args.generate)
     elif args.generate is not None and args.generate < 2:
