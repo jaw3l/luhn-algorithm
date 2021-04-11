@@ -1,6 +1,5 @@
 # Luhn Algorithm
 
----
 Luhn algorithm is a simple checksum formula used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers.
 
 ## Usage
